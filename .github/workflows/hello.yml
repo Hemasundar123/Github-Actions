@@ -25,3 +25,23 @@ jobs:
           echo "My name is Mikey"
           ls -la
           cat README.md
+
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout Repo
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install cowsay -y
+      - name: Run Command
+        run: |
+          cowsay "Hello Wold My name is Mikey" >> Mikey.txt
+      - name: Test File
+        run: grep "Mikey" Mikey.txt
+      - name: Read File
+        run: cat Mikey.txt
+      - name: list
+        run: ls
+
