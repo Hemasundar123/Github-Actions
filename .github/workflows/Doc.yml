@@ -30,7 +30,8 @@ jobs:
               with:
                 username: ${{vars.DOCKER_USERNAME}}
                 password: "${{ secrets.DOCKER_PASSWORD }}"
-                image_name: python:v1
+                image_name: python
+                image_tag: v1
     
     Run:
         runs-on: ubuntu-latest
