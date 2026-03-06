@@ -16,3 +16,12 @@ jobs:
         run: ls -la
       - name: Read file
         run: cat README.md
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Command
+        run: |
+          echo "Hello"
+          echo "My name is Mikey"
+          ls -la
+          cat README.md
