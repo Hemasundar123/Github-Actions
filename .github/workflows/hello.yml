@@ -17,6 +17,7 @@ jobs:
       - name: Read file
         run: cat README.md
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Repo
@@ -29,6 +30,7 @@ jobs:
           cat README.md
 
   install:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: checkout Repo
@@ -46,4 +48,17 @@ jobs:
         run: cat Mikey.txt
       - name: list
         run: ls
+
+  inst:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install npm
+        run: |
+          sudo apt-get update
+          sudo apt-get install nodejs npm -y
+          sudo npm install -g
+          npm install
+          npm run build
+          npm start
 
