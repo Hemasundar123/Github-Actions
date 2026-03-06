@@ -1,0 +1,20 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Hello
+              run: echo "Hello This is a Command runner yml runner"
+            - name : Run Command
+              run: |
+                echo "Hello"
+                echo "My name is Mikey"
+                ls -la
+                cat README.md
+            - name: Checkout
+              uses: actions/checkout@v4
