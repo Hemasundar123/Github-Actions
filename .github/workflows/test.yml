@@ -8,6 +8,8 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
             - name: Hello
               run: echo "Hello This is a Command runner yml runner"
             - name : Run Command
@@ -16,5 +18,3 @@ jobs:
                 echo "My name is Mikey"
                 ls -la
                 cat README.md
-            - name: Checkout
-              uses: actions/checkout@v4
