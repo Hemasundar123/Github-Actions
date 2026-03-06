@@ -13,4 +13,4 @@ jobs:
       - name: list files
         run: ls -la
       - name: Read file
-        run: cat hello.yml
+        run: cat README.md
