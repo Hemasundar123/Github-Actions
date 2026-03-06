@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Echo Class
         run: echo "My name is Mikey"
+      - name : Checkout
+        uses: actions/checkout@v4
       - name: list files
         run: ls -la
       - name: Read file
