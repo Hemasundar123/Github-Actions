@@ -20,3 +20,18 @@ jobs:
                 context: .
                 push: true
                 tags: ${{vars.DOCKER_USERNAME}}/python:latest
+    pull:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+    
+    Run:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run Docker File
+              uses: addnab/docker-run-action@v3
+              with:
+                image: python:latest
+          
+
