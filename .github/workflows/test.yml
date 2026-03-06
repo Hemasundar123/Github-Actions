@@ -1,4 +1,4 @@
-name: test
+name: Test
 
 on:
     push:
@@ -12,7 +12,18 @@ jobs:
               uses: actions/checkout@v4
             - name: Run Command
               run: |
-                  echo "Hello"
-                  echo "My name is Mikey"
-                  ls -la
-                  cat README.md
+                echo "Hello"
+                echo "My name is Mikey"
+                ls -la
+                cat README.md   
+    test:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run Command
+              run: |
+                echo "Hello"
+                echo "My name is Mikey"
+                ls -la
+                cat README.md   
+        
