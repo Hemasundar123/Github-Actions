@@ -15,7 +15,19 @@ jobs:
                 echo "Hello"
                 echo "My name is Mikey"
                 ls -la
-                cat README.md   
+                cat README.md
+            - name: Install Dependencies
+              run: |
+                sudo apt-get update
+                sudo apt-get install cowsay -y
+                echo "Mikey" >> Mikey.txt
+                cat Mikey.txt
+            - name: Upload File
+              uses: actions/upload-artifact@v4
+              with:
+                name: Mikey
+                path: Mikey.txt  
+
     test:
         needs: build
         runs-on: ubuntu-latest
@@ -25,5 +37,9 @@ jobs:
                 echo "Hello"
                 echo "My name is Mikey"
                 ls -la
-                cat README.md   
+                cat README.md
+            - name: Download File
+              uses: actions/download-artifact@v4
+              with:
+                name: Mikey
         
