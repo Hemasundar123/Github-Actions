@@ -1,0 +1,23 @@
+name: Matrix-Actions
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    matrix:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                image: [ubuntu-latest, windows-latest, macos-latest]
+                version: [1,2]
+                include:
+                    - image: ubuntu-latest
+                      version: 3
+                    - image: windows-latest
+                      os: best
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Run Script
+              run: echo "Running on ${{ matrix.image }} with version ${{ matrix.version }}"
