@@ -8,6 +8,7 @@ jobs:
     matrix:
         runs-on: ubuntu-latest
         strategy:
+            max-parallel: 2
             matrix:
                 image: [ubuntu-latest, windows-latest, macos-latest]
                 version: [1,2]
@@ -20,4 +21,4 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             - name: Run Script
-              run: echo "Running on ${{ matrix.image }} with version ${{ matrix.version }}"
+              run: echo "Running on ${{ matrix.image }} with version ${{ matrix.version }} and os ${{ matrix.os }}"
