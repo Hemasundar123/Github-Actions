@@ -2,8 +2,8 @@ name: Docker-Actions
 
 on:
    workflow_dispatch:
-  #  push:
-  #       branches: [main]
+   push:
+        branches: [main]
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -23,6 +23,7 @@ jobs:
             #     tags: ${{vars.DOCKER_USERNAME}}/python:latest
 
     run-pull:
+        timeout-minutes: 1
         concurrency:
           group: production
           cancel-in-progress: true
