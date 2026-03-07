@@ -1,7 +1,8 @@
 name: Docker-Actions
 
 on:
-    push:
+   workflow_dispatch:
+   push:
         branches: [main]
 jobs:
     build:
@@ -22,6 +23,7 @@ jobs:
             #     tags: ${{vars.DOCKER_USERNAME}}/python:latest
 
     run-pull:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -34,6 +36,7 @@ jobs:
                 image_tag: v1
     
     Run:
+        needs: run-pull
         runs-on: ubuntu-latest
         steps:
             - name: Run Docker File
